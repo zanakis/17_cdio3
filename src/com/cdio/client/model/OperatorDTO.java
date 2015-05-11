@@ -63,4 +63,8 @@ public class OperatorDTO implements IOperatorDAO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String toString() {
+		return "ID: " + oprId + " Name: " + oprNavn + " CPR: " + cpr; 
+	}
 }

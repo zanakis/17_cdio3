@@ -14,54 +14,51 @@ public class CDIOServiceImpl extends RemoteServiceServlet implements CDIOService
 	private static HashMap<Integer, OperatorDTO> ops = new HashMap<Integer, OperatorDTO>();
 	
 	@Override
-	public void createUser(int id, String name, String ini, String cpr,
+	public String createUser(int id, String name, String ini, String cpr,
 			String pass) {
 		this.id = id;
 		if(!idIsValid()) {
-//			print not valid message
-			return;
+			return "Invalid ID";
 		}
 		if(!((name.length() >= 2) && (name.length() <= 20))) {
-//			print not valid message
-			return;
+			return "Please enter a name between 2 and 20 characters";
 		}
 		if(!((ini.length() >= 2) && (ini.length() <= 20))) {
-//			print not valid message
-			return;
+			return "Please enter between 2 and 3 initials";
 		}
 		if(!(cpr.length() == 10)) {
-//			print not valid message
-			return;
+			return "Please enter a CPR nr of 10 characters";
 		}
 		if(!((pass.length() >= 7) && (pass.length() <= 8))) {
-//			print not valid message
-			return;
+			return "Please enter a password between 7 and 8 characters";
 		}
 		OperatorDTO operator = new OperatorDTO(id, name, ini, cpr, pass);
 		ops.put(id, operator);
 		ids.add(id);
+		return "Operator added";
 	}
 
 	@Override
-	public void deleteUser(int id, String pass) {
+	public String deleteUser(int id, String pass) {
 		if(!ops.containsKey(id)) {
-//			error message
-			return;
+			return "Operator doesn't exist";
 		}
 		if(ops.get(id).getPassword().equals(pass)) {
-//			error message
-			return;
+			return "Wrong password";
 		}
 		ops.remove(id);
+		return "Operator removes";
 	}
 
 	@Override
-	public void listUsers() {
+	public String listUsers() {
+		String str = "";
 		Collections.sort(ids);
 		for(int i = 0; i < ids.size(); i++) {
-//			print det på en måde
-			System.out.println(ops.get(ids.get(i)));
+			str += ops.get(ids.get(i)).toString();
+			str += "\n";
 		}
+		return str;
 	}
 	
 	public boolean idIsValid() {
