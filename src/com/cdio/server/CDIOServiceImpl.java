@@ -3,7 +3,6 @@ package com.cdio.server;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 
 import com.cdio.client.model.*;
 import com.cdio.client.service.CDIOService;
@@ -38,7 +37,7 @@ public class CDIOServiceImpl extends RemoteServiceServlet implements CDIOService
 //			print not valid message
 			return;
 		}
-		operator = new OperatorDTO(id, name, ini, cpr, pass);
+		OperatorDTO operator = new OperatorDTO(id, name, ini, cpr, pass);
 		ops.put(id, operator);
 		ids.add(id);
 	}
@@ -81,5 +80,4 @@ public class CDIOServiceImpl extends RemoteServiceServlet implements CDIOService
 	}
 	
 	private int id;
-	private OperatorDTO operator;
 }
