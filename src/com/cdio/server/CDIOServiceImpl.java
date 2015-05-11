@@ -61,7 +61,7 @@ public class CDIOServiceImpl extends RemoteServiceServlet implements CDIOService
 		return str;
 	}
 	
-	public boolean idIsValid() {
+	private boolean idIsValid() {
 		if((id >= 1) && (id <= 99999999)) {
 			if(!checkIfExists(id)) {
 				return true;
@@ -70,7 +70,7 @@ public class CDIOServiceImpl extends RemoteServiceServlet implements CDIOService
 		return false;
 	}
 	
-	public boolean checkIfExists(int id) {
+	private boolean checkIfExists(int id) {
 		if(ids.contains(id))
 			return true;
 		return false;
