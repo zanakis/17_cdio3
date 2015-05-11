@@ -59,12 +59,7 @@ public class CreateOperatoer extends Composite {
 	private class txt1click implements ClickHandler{
 		@Override
 		public void onClick(ClickEvent event) {
-			String Text1 = new CreateOperatoer().tbox1.getText();
-			String Text2 = new CreateOperatoer().tbox2.getText();
-			String Text3 = new CreateOperatoer().tbox3.getText();
-			String Text4 = new CreateOperatoer().tbox4.getText();
-			String Text5 = new CreateOperatoer().tbox5.getText();
-			System.out.println(Text1);
+			
 		}
 	}
 }

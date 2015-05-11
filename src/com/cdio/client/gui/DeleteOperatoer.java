@@ -1,6 +1,7 @@
 package com.cdio.client.gui;
 
 import com.cdio.client.service.CDIOServiceClientImpl;
+import com.cdio.server.CDIOServiceImpl;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
@@ -40,12 +41,7 @@ public class DeleteOperatoer extends Composite {
 	private class txt1click implements ClickHandler{
 		@Override
 		public void onClick(ClickEvent event) {
-			String Text1 = new DeleteOperatoer().tbox1.getText();
-			String Text2 = new DeleteOperatoer().tbox1.getText();
-			String Text3 = new DeleteOperatoer().tbox1.getText();
-			String Text4 = new DeleteOperatoer().tbox1.getText();
-			String Text5 = new DeleteOperatoer().tbox1.getText();
-			System.out.println(Text1);
+			
 		}
 	}
 }
